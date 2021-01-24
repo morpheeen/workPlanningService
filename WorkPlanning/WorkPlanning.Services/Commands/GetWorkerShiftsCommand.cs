@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WorkPlanning.DA.Models;
 using WorkPlanning.DA.Repository;
-using WorkPlanning.Services.Conntracts;
+using WorkPlanning.Services.Contracts;
 
 namespace WorkPlanning.Services.Commands
 {
@@ -24,7 +24,7 @@ namespace WorkPlanning.Services.Commands
         {
             RuleFor(_ => _.WorkerId)
                .NotEqual(Guid.Empty)
-               .WithErrorCode("Worker id is invalid");
+               .WithErrorCode(Errors.InvalidId);
         }
     }
 

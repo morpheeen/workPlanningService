@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WorkPlanning.Services.Commands;
-using WorkPlanning.Services.Conntracts;
+using WorkPlanning.Services.Contracts;
 
 namespace WorkPlanning.Api.Controllers.v1
 {
+    /// <summary>
+    /// Manages Workers
+    /// </summary>
     [ApiController]
     [Route("workers/v1")]
     public class WorkersController : ControllerBase
@@ -18,6 +21,10 @@ namespace WorkPlanning.Api.Controllers.v1
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Retrieves workers list
+        /// </summary>
+        /// <returns></returns>
         [Route("")]
         [HttpGet]
         public async Task<ICollection<Worker>> GetWorkers()

@@ -4,5 +4,51 @@
         <name>WorkPlanning.Api</name>
     </assembly>
     <members>
+        <member name="T:WorkPlanning.Api.Controllers.v1.ShiftsController">
+            <summary>
+            Manages Shifts
+            </summary>
+        </member>
+        <member name="M:WorkPlanning.Api.Controllers.v1.ShiftsController.GetWorkerShifts(System.Guid)">
+            <summary>
+            Retrieves shifts list for a worker
+            </summary>
+            <param name="workerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkPlanning.Api.Controllers.v1.ShiftsController.DeleteShift(System.Guid)">
+            <summary>
+            Deletes a shift
+            </summary>
+            <param name="shiftId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkPlanning.Api.Controllers.v1.ShiftsController.AddWorkerShift(System.Guid,WorkPlanning.Services.Contracts.Shift)">
+            <summary>
+            Adds a new shift for a worker
+            </summary>
+            <param name="workerId"></param>
+            <param name="shift"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkPlanning.Api.Controllers.v1.ShiftsController.UpdateShift(System.Guid,WorkPlanning.Services.Contracts.Shift)">
+            <summary>
+            Updates a shift
+            </summary>
+            <param name="shiftId"></param>
+            <param name="shift"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WorkPlanning.Api.Controllers.v1.WorkersController">
+            <summary>
+            Manages Workers
+            </summary>
+        </member>
+        <member name="M:WorkPlanning.Api.Controllers.v1.WorkersController.GetWorkers">
+            <summary>
+            Retrieves workers list
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

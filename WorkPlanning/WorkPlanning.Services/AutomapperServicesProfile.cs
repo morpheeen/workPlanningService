@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using WorkPlanning.DA.Models;
-using WorkPlanning.Services.Conntracts;
+using WorkPlanning.Services.Contracts;
 
 namespace WorkPlanning.Services
 {

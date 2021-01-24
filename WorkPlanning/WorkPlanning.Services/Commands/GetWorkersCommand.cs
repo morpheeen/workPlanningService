@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WorkPlanning.DA.Models;
 using WorkPlanning.DA.Repository;
-using WorkPlanning.Services.Conntracts;
+using WorkPlanning.Services.Contracts;
 
 namespace WorkPlanning.Services.Commands
 {

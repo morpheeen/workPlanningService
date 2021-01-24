@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorkPlanning.Services.Conntracts
+namespace WorkPlanning.Services.Contracts
 {
     public class Shift
     {
