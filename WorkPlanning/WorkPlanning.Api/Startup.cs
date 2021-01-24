@@ -12,6 +12,7 @@ using System.Reflection;
 using WorkPlanning.DA.Repository;
 using WorkPlanning.Infrastructure;
 using WorkPlanning.Infrastructure.Configuration;
+using WorkPlanning.Services.AzureServiceBus;
 using WorkPlanning.Services.Commands;
 
 namespace WorkPlanning.Api
@@ -51,6 +52,7 @@ namespace WorkPlanning.Api
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddTransient<IRepository, Repository>();
+            services.AddSingleton<IAzureServiceBusClient, AzureServiceBusClient>();
 
             services.AddMediatR(typeof(GetWorkersCommand).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(GetWorkerShiftsCommand).GetTypeInfo().Assembly);
