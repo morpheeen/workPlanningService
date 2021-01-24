@@ -1,0 +1,11 @@
+WorkPlanning/WorkPlanning.Api/bin/
+WorkPlanning/WorkPlanning.Api/obj/
+WorkPlanning/WorkPlanning.DA/obj/WorkPlanning.DA.csproj.nuget.dgspec.json
+WorkPlanning/WorkPlanning.DA/bin/
+WorkPlanning/WorkPlanning.Infrastructure/obj/
+WorkPlanning/WorkPlanning.DA/obj/
+WorkPlanning/WorkPlanning.Services.Tests/bin/
+WorkPlanning/WorkPlanning.Services.Tests/obj/
+WorkPlanning/WorkPlanning.Services/obj/
+WorkPlanning/WorkPlanning.Infrastructure/bin/
+WorkPlanning/WorkPlanning.Services/bin/
