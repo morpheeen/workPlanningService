@@ -2,6 +2,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +30,9 @@ namespace WorkPlanning.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var appConfig = Configuration.GetSection(Constants.AppConfigs).Get<AppConfig>();
+
+
             // Mediator
             services.AddScoped<IMediator, Mediator>();
             services.AddScoped<ServiceFactory>(pr => pr.GetService);
@@ -52,15 +56,21 @@ namespace WorkPlanning.Api
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddTransient<IRepository, Repository>();
-            services.AddSingleton<IAzureServiceBusClient, AzureServiceBusClient>();
 
             services.AddMediatR(typeof(GetWorkersCommand).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(GetWorkerShiftsCommand).GetTypeInfo().Assembly);
+
+            services.AddHostedService<ServiceBusHostedService>();
+            services.AddAzureClients(cfg =>
+            {
+                cfg.AddServiceBusClient(appConfig.ServiceBusConnectionString);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -94,6 +104,7 @@ namespace WorkPlanning.Api
             {
                 endpoints.MapControllers();
             });
+
         }
 
     }
